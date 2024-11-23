@@ -73,5 +73,3 @@ Si deseas mejorar la calculadora o agregar nuevas funcionalidades, ¡serás más
 ¡Nos encanta hacer que las matemáticas sean más fáciles y accesibles! ✨
 
 ---
-
-Este `README` tiene un tono amigable pero profesional, cubriendo puntos importantes como las reglas de uso, los riesgos, y una invitación a disfrutar la experiencia. Además, tiene un toque de accesibilidad al explicar claramente lo que la aplicación puede y no puede hacer, y con una advertencia sobre posibles errores comunes como la división por cero.
