@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Responsiva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/images/Gaming Logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Calculadora Basica</h1>
+            <button id="theme-toggle" class="theme-toggle-btn">🌙</button> <!-- Icono para el toggle -->
+        </div>
+    </header>
+    <!-- Calculadora -->
+    <div class="calculator">
+        <div class="display">
+            <input id="screen" type="text" disabled>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="appendToScreen('7')">7</button>
+            <button class="btn" onclick="appendToScreen('8')">8</button>
+            <button class="btn" onclick="appendToScreen('9')">9</button>
+            <button class="btn operator" onclick="appendToScreen('/')">/</button>
+            
+            <button class="btn" onclick="appendToScreen('4')">4</button>
+            <button class="btn" onclick="appendToScreen('5')">5</button>
+            <button class="btn" onclick="appendToScreen('6')">6</button>
+            <button class="btn operator" onclick="appendToScreen('*')">*</button>
+            
+            <button class="btn" onclick="appendToScreen('1')">1</button>
+            <button class="btn" onclick="appendToScreen('2')">2</button>
+            <button class="btn" onclick="appendToScreen('3')">3</button>
+            <button class="btn operator" onclick="appendToScreen('-')">-</button>
+            
+            <button class="btn" onclick="appendToScreen('0')">0</button>
+            <button class="btn" onclick="clearScreen()">C</button>
+            <button class="btn" onclick="calculateResult()">=</button>
+            <button class="btn operator" onclick="appendToScreen('+')">+</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hyliard. Todos los derechos reservados.</p>
+        <h4>Luis Gerardo Martínez Hernández</h4>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
