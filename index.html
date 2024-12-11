@@ -1,52 +1,103 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Responsiva</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="assets/images/Gaming Logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decifrador César</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/Gaming Logo.png" type="image/x-icon">
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <h1>Calculadora Basica</h1>
-            <button id="theme-toggle" class="theme-toggle-btn">🌙</button> <!-- Icono para el toggle -->
+
+<body class="dark">
+  <header class="header">
+    <!-- Contenedor de switches (modo oscuro y colores) -->
+    <nav class="switches">
+      <!-- Toggle de tema -->
+      <div id="toggle-theme" class="toggle-theme" role="button" aria-label="Cambiar tema">
+        <img id="toggle-icon" src="assets/icons/moon.svg" alt="Icono de tema oscuro" class="toggle-theme__icon" />
+        <p id="toggle-text" class="toggle-theme__text"></p>
+      </div>
+      <ul class="navigation">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="projects.html">Proyectos</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+      <!-- Contenedor de selección de colores -->
+      <div id="toggle-colors" class="colors" aria-label="Seleccionar color de tema">
+        <div data-color="hsl(214, 84%, 56%)" class="colors__item colors__item--blue" aria-label="Color Azul">
         </div>
-    </header>
-    <!-- Calculadora -->
-    <div class="calculator">
-        <div class="display">
-            <input id="screen" type="text" disabled>
+        <div data-color="hsl(150, 84%, 56%)" class="colors__item colors__item--green" aria-label="Color Verde">
         </div>
-        <div class="buttons">
-            <button class="btn" onclick="appendToScreen('7')">7</button>
-            <button class="btn" onclick="appendToScreen('8')">8</button>
-            <button class="btn" onclick="appendToScreen('9')">9</button>
-            <button class="btn operator" onclick="appendToScreen('/')">/</button>
-            
-            <button class="btn" onclick="appendToScreen('4')">4</button>
-            <button class="btn" onclick="appendToScreen('5')">5</button>
-            <button class="btn" onclick="appendToScreen('6')">6</button>
-            <button class="btn operator" onclick="appendToScreen('*')">*</button>
-            
-            <button class="btn" onclick="appendToScreen('1')">1</button>
-            <button class="btn" onclick="appendToScreen('2')">2</button>
-            <button class="btn" onclick="appendToScreen('3')">3</button>
-            <button class="btn operator" onclick="appendToScreen('-')">-</button>
-            
-            <button class="btn" onclick="appendToScreen('0')">0</button>
-            <button class="btn" onclick="clearScreen()">C</button>
-            <button class="btn" onclick="calculateResult()">=</button>
-            <button class="btn operator" onclick="appendToScreen('+')">+</button>
-        </div>
+        <div data-color="hsl(276, 84%, 56%)" class="colors__item colors__item--purple" aria-label="Color Púrpura"></div>
+        <div data-color="hsl(46, 84%, 56%)" class="colors__item colors__item--orange" aria-label="Color Naranja"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Calculadora -->
+  <div class="calculator">
+    <div class="display">
+      <input id="screen" type="text" disabled>
     </div>
-    <!-- Footer -->
+    <div class="buttons">
+      <button class="btn" onclick="appendToScreen('7')">7</button>
+      <button class="btn" onclick="appendToScreen('8')">8</button>
+      <button class="btn" onclick="appendToScreen('9')">9</button>
+      <button class="btn operator" onclick="appendToScreen('/')">/</button>
+
+      <button class="btn" onclick="appendToScreen('4')">4</button>
+      <button class="btn" onclick="appendToScreen('5')">5</button>
+      <button class="btn" onclick="appendToScreen('6')">6</button>
+      <button class="btn operator" onclick="appendToScreen('*')">*</button>
+
+      <button class="btn" onclick="appendToScreen('1')">1</button>
+      <button class="btn" onclick="appendToScreen('2')">2</button>
+      <button class="btn" onclick="appendToScreen('3')">3</button>
+      <button class="btn operator" onclick="appendToScreen('-')">-</button>
+
+      <button class="btn" onclick="appendToScreen('0')">0</button>
+      <button class="btn" onclick="clearScreen()">C</button>
+      <button class="btn" onclick="calculateResult()">=</button>
+      <button class="btn operator" onclick="appendToScreen('+')">+</button>
+    </div>
+  </div>
+
+
+  <script src="js/script.js"></script>
+  <div class="container-footer">
     <footer>
-        <p>&copy; 2024 Hyliard. Todos los derechos reservados.</p>
-        <h4>Luis Gerardo Martínez Hernández</h4>
+      <!-- Logo del pie de página -->
+      <div class="logo-footer">
+        <img src="assets/images/Gaming Logo.png" alt="Logo de Gaming de Hyliard" />
+      </div>
+
+      <!-- Enlaces a redes sociales -->
+      <div class="redes-footer">
+        <a href="https://www.linkedin.com/in/luis-gerardo-martinez-03898582/" target="_blank" rel="noopener"
+          aria-label="LinkedIn de Luis Gerardo Martínez">
+          <i class="fab fa-linkedin-in icon-redes"></i>
+        </a>
+        <a href="https://github.com/Hyliard" target="_blank" rel="noopener" aria-label="GitHub de Hyliard">
+          <i class="fab fa-github icon-redes"></i>
+        </a>
+        <a href="https://www.twitch.tv/hyliard" target="_blank" rel="noopener" aria-label="Twitch de Hyliard">
+          <i class="fab fa-twitch icon-redes"></i>
+        </a>
+      </div>
+
+      <!-- Separador horizontal -->
+      <hr />
+
+      <!-- Derechos de autor -->
+      <p>© 2024 Hyliard. Todos los derechos reservados.</p>
+
+      <!-- Nombre de la persona -->
+      <h4>Luis Gerardo Martínez Hernández</h4>
     </footer>
-    <script src="js/script.js"></script>
+
+  </div>
 </body>
+
 </html>

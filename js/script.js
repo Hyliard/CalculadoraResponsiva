@@ -16,24 +16,24 @@ function calculateResult() {
     }
 }
 
-// Función para alternar entre modo oscuro y modo claro
-const themeToggleBtn = document.getElementById('theme-toggle');
-const body = document.body;
-
-themeToggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    body.classList.toggle('light-mode');
-    
-    // Cambiar el icono del botón
-    if (body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = '☀️';  // Icono para el modo claro
+// Cambiar entre tema claro y oscuro
+document.getElementById("toggle-theme").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const themeText = document.getElementById("toggle-text");
+    if (document.body.classList.contains("dark")) {
+        themeText.textContent = "Modo Claro";
+        document.getElementById("toggle-icon").src = "assets/icons/sun.svg"; // Cambia la imagen del ícono
     } else {
-        themeToggleBtn.textContent = '🌙';  // Icono para el modo oscuro
+        themeText.textContent = "Modo Oscuro";
+        document.getElementById("toggle-icon").src = "assets/icons/moon.svg"; // Cambia la imagen del ícono
     }
 });
 
-// Establecer el tema inicial (modo claro por defecto)
-if (!body.classList.contains('dark-mode')) {
-    body.classList.add('light-mode');
-}
+// Cambiar color de tema
+document.querySelectorAll(".colors__item").forEach(item => {
+    item.addEventListener("click", () => {
+        const color = item.getAttribute("data-color");
+        document.documentElement.style.setProperty('--primary-color', color);
+    });
+});
 

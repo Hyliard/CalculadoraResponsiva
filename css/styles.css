@@ -1,170 +1,534 @@
-/* Estilo general */
+:root {
+  --primary-color: hsl(214, 84%, 56%);
+  --text-color: hsl(0, 0%, 31%);
+  --bg-color: hsl(0, 0%, 90%);
+  --bg-card-color: hsl(0, 0%, 98%);
+  --border-radius: 0.4em;
+  --transition: color 0.1s, background-color 0.2s ease-in-out;
+
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: flex;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--transition);
+  font-family: sans-serif;
 }
 
-/* Header */
-header {
-    background-color: #222;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body.dark {
+  --text-color: hsl(0, 0%, 83%);
+  --bg-color: hsl(0, 0%, 15%);
+  --bg-card-color: hsl(0, 0%, 20%);
+
 }
 
-header .header-content h1 {
-    margin: 0;
-    font-size: 1.5rem;
+/* Media query para pantallas pequeñas (como móviles) */
+@media (max-width: 768px) {
+  body {
+      background-color: var(--bg-color);
+  }
 }
 
-.theme-toggle-btn {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s;
+/* Media query para pantallas muy pequeñas (como móviles en modo retrato) */
+@media (max-width: 480px) {
+  body {
+      background-color: var(--bg-color);
+  }
 }
 
-.theme-toggle-btn:hover {
-    color: #f0f0f0;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  padding: 0 1.5em;
+  background-color: var(--bg-card-color);
+  transition: background-color 0.3s ease-in-out;
 }
+
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 1rem;
+  padding: auto;
+  background-color: var(--bg-card-color);
+  transition: var(--transition);
+}
+
+.navigation>li {
+  display: flex;
+  position: relative;
+  padding: 0.5rem;
+  cursor: pointer;
+  max-width: max-content;
+  transition: var(--transition);
+}
+
+.navigation>li:hover {
+  color: var(--primary-color);
+}
+
+.navigation>li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 0.125rem;
+  background-color: var(--primary-color);
+}
+
+.switches {
+  display: contents;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle-theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-theme__icon {
+  margin-right: 0.5em;
+  width: 20px;
+}
+
+.toggle-theme__text {
+  font-size: 0.8rem;
+}
+
+.colors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  width: 100px;
+}
+
+.colors__item {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--text-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.colors__item--blue {
+  --primary-color: hsl(214, 84%, 56%);
+}
+
+.colors__item--green {
+  --primary-color: hsl(150, 84%, 56%);
+}
+
+.colors__item--purple {
+  --primary-color: hsl(276, 84%, 56%);
+}
+
+.colors__item--orange {
+  --primary-color: hsl(46, 84%, 56%);
+}
+
+.title {
+  text-align: center;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+/* Ajustes para pantallas grandes (mayores a 620px) */
+
+@media screen and (min-width: 768px) {
+  .main {
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-areas:
+          "left-aside middle right-aside";
+  }
+}
+
+/* Estilo general para .main */
+
 
 /* Calculadora */
 .calculator {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
 }
 
 .display {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
 }
 
 #screen {
-    width: 100%;
-    height: 50px;
-    background-color: #222;
-    color: #fff;
-    border: none;
-    font-size: 2rem;
-    text-align: right;
-    padding: 10px;
-    border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 20px;
 }
 
 .btn {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 20px;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .operator {
-    background-color: #f29c11;
-    color: #fff;
+  background-color: #f29c11;
+  color: #fff;
 }
 
 .operator:hover {
-    background-color: #d88f0b;
+  background-color: #d88f0b;
 }
 
-/* Footer */
-footer {
-    background-color: #222;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
 
-/* Estilo para el modo claro */
-.light-mode {
-    background-color: #f4f4f9;
-    color: #333;
-}
 
-.light-mode header {
-    background-color: #fff;
-    color: #333;
-}
 
-.light-mode .btn {
-    background-color: #f0f0f0;
-    color: #333;
-}
 
-.light-mode .operator {
-    background-color: #f29c11;
-    color: #fff;
-}
-
-/* Estilo para el modo oscuro */
-.dark-mode {
-    background-color: #222;
-    color: #fff;
-}
-
-.dark-mode header {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode .btn {
-    background-color: #444;
-    color: #fff;
-}
-
-.dark-mode .operator {
-    background-color: #f29c11;
-    color: #fff;
-}
 
 /* aqui dejo para que cambie de tama;o */
 @media (max-width: 768px) {
-    #screen {
-        font-size: 1.8rem;
-    }
+  #screen {
+      font-size: 1.8rem;
+  }
 
-    .btn {
-        font-size: 1.2rem;
-        padding: 15px;
-    }
+  .btn {
+      font-size: 1.2rem;
+      padding: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    #screen {
-        font-size: 1.6rem;
-    }
+  #screen {
+      font-size: 1.6rem;
+  }
 
-    .btn {
-        font-size: 1rem;
-        padding: 10px;
-    }
+  .btn {
+      font-size: 1rem;
+      padding: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-footer {
+  text-align: center;
+  width: 100%;
+  padding: 40px;
+  background: var(--bg-color);
+  margin-top: 40px;
+  position: relative;
+  bottom: 0;
+
+}
+
+.container-footer footer {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.container-footer footer .logo-footer {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-footer1 {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  /* esto fue lo que puso el logo en el centro*/
+}
+
+.container-footer footer .logo-footer img {
+  width: 100px;
+}
+
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container-footer footer .redes-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container-footer footer .redes-footer .icon-redes {
+  font-size: 30px;
+  margin: 20px;
+  background: #efefef;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  color: #a2a2a2;
+}
+
+footer .redes-footer .fa-linkedin-in:hover {
+  background: #0e76a8;
+  color: #fff;
+}
+
+footer .redes-footer .fa-github:hover {
+  background: #000;
+  color: #fff;
+}
+
+footer .redes-footer .fa-twitch:hover {
+  background: #6441a5;
+  color: #fff;
+}
+
+.container-footer footer hr {
+  border: 1px solid #a2a2a2;
+}
+
+.container-footer h4 {
+  text-align: center;
+  color: #a2a2a2;
+  margin-top: 20px;
+}
+
+
+column--center {
+  align-items: center;
+}
+
+/* Nueva sección con ancho completo */
+section.column--fullwidth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjetas dentro de la columna de ancho completo */
+.card--project {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px 0;
+}
+
+
+
+/* Centrar el artículo y su contenido */
+.project1 {
+  display: flex;
+  /* Usamos Flexbox para centrar */
+  justify-content: center;
+  /* Centra el contenido horizontalmente */
+  align-items: center;
+  /* Centra el contenido verticalmente */
+  margin: 40px 0;
+  /* Agrega margen superior e inferior */
+}
+
+/* Estilo para el título dentro del artículo */
+.titlep {
+  font-size: 2em;
+  /* Tamaño de fuente adecuado */
+  font-weight: bold;
+  /* Hacer el título más destacado */
+  text-align: center;
+  /* Asegura que el texto esté centrado */
+  color: var(--link-color);
+  /* Color oscuro para buen contraste */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo para la sección de contacto */
+.contact-section {
+  padding: 50px 20px;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contenedor de tarjetas de contacto */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilo para cada tarjeta de contacto */
+.contact-card {
+  background-color: var(--bg-card-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: var(--primary-color);
+}
+
+.contact-card a {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilo de los iconos */
+.contact-icon {
+  font-size: 2.5rem;
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+  color: #007bb5;
+}
+
+/* Estilo responsivo para móviles */
+@media (max-width: 768px) {
+  .contact-section h2 {
+      font-size: 2rem;
+  }
+
+  .contact-section p {
+      font-size: 1rem;
+  }
+
+  .contact-card {
+      max-width: 100%;
+      padding: 20px;
+  }
+}
+
+
+/* Estilo específico para iPhone 13 Pro en vertical */
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .contact-card {
+      padding: 10px;
+      margin: 10px;
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 768px) {
+  body {
+      font-size: 16px;
+  }
+
+  .header {
+      display: flex;
+  }
+
+  .card {
+      width: 100%;
+      margin: 10px 0;
+  }
 }
